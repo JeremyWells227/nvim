@@ -13,6 +13,7 @@ return require('packer').startup(function()
 }
 
 	use 'neovim/nvim-lspconfig'
+	use 'onsails/lspkind.nvim'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -41,5 +42,27 @@ return require('packer').startup(function()
 	use 'embark-theme/vim'
 	use 'RRethy/vim-hexokinase'
   use 'https://git.sr.ht/~lmartinez/lualine-embark'	
-
+	use {
+		'stevearc/aerial.nvim',
+		config = function() require('aerial').setup ({
+			backends = { "lsp", "treesitter", "markdown" } ,
+			on_attach = function(bufnr)
+				-- Toggle the aerial window with <leader>a
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "<c-,>", "<cmd>AerialToggle! right<CR>", {})
+				-- Jump forwards/backwards with "{" and "}"
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "{", "<cmd>AerialPrev<CR>", {})
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "}", "<cmd>AerialNext<CR>", {})
+				-- Jump up the tree with "[[" or "]]"
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "[[", "<cmd>AerialPrevUp<CR>", {})
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "]]", "<cmd>AerialNextUp<CR>", {})
+			end,
+			layout = {
+				default_direction = "prefer_left",
+				max_width = {40,0.2},
+				width = nil,
+				min_width = 20,
+			}
+		}) 
+	end
+}
 end)

@@ -20,7 +20,7 @@ require('lualine').setup{
       sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename'},
+        lualine_c = {'filename',{'aerial',colored=true}},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
@@ -46,8 +46,76 @@ require('lualine').setup{
       extensions = {
 				'nerdtree',
 				"fugitive",
+				'aerial',
 			}
     }
+
+
+-- lualine_c_command xxx guifg=#cbe3e7 guibg=#100e23
+-- Identifier xxx ctermfg=141 guifg=#d4bfff
+-- Function       xxx ctermfg=204 guifg=#f48fb1 
+-- Special        xxx ctermfg=122 guifg=#87dfeb  
+-- Type           xxx ctermfg=159 guifg=#91ddff
+-- Constant       xxx ctermfg=228 guifg=#ffe6b3
+-- Include PreProc        xxx ctermfg=120 guifg=#a1efd3 
+vim.cmd [[ 
+    highlight  AerialLine							 guifg=#87dfeb
+    highlight  AerialArrayIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialBooleanIcon       ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialClassIcon         ctermfg=159 guifg=#91ddff guibg=#100e23
+    highlight  AerialConstantIcon      ctermfg=228 guifg=#ffe6b3 guibg=#100e23
+    highlight  AerialConstructorIcon   ctermfg=122 guifg=#87dfeb guibg=#100e23
+    highlight  AerialEnumIcon          ctermfg=159 guifg=#91ddff guibg=#100e23
+    highlight  AerialEnumMemberIcon    ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialEventIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialFieldIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialFileIcon          ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialFunctionIcon      ctermfg=204 guifg=#f48fb1 guibg=#100e23
+    highlight  AerialInterfaceIcon     ctermfg=159 guifg=#91ddff guibg=#100e23
+    highlight  AerialKeyIcon           ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialMethodIcon        ctermfg=204 guifg=#f48fb1 guibg=#100e23
+    highlight  AerialModuleIcon        ctermfg=120 guifg=#a1efd3 guibg=#100e23
+    highlight  AerialNamespaceIcon     ctermfg=120 guifg=#a1efd3 guibg=#100e23
+    highlight  AerialNullIcon          ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialNumberIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialObjectIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialOperatorIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialPackageIcon       ctermfg=120 guifg=#a1efd3 guibg=#100e23
+    highlight  AerialPropertyIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialStringIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialStructIcon        ctermfg=159 guifg=#91ddff guibg=#100e23
+    highlight  AerialTypeParameterIcon ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  AerialVariableIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
+
+    highlight  AerialArray         guibg=#100e23
+    highlight  AerialBoolean       guibg=#100e23
+    highlight  AerialClass         guibg=#100e23
+    highlight  AerialConstant      guibg=#100e23
+    highlight  AerialConstructor   guibg=#100e23
+    highlight  AerialEnum          guibg=#100e23
+    highlight  AerialEnumMember    guibg=#100e23
+    highlight  AerialEvent         guibg=#100e23
+    highlight  AerialField         guibg=#100e23
+    highlight  AerialFile          guibg=#100e23
+    highlight  AerialFunction      guibg=#100e23
+    highlight  AerialInterface     guibg=#100e23
+    highlight  AerialKey           guibg=#100e23
+    highlight  AerialMethod        guibg=#100e23
+    highlight  AerialModule        guibg=#100e23
+    highlight  AerialNamespace     guibg=#100e23
+    highlight  AerialNull          guibg=#100e23
+    highlight  AerialNumber        guibg=#100e23
+    highlight  AerialObject        guibg=#100e23
+    highlight  AerialOperator      guibg=#100e23
+    highlight  AerialPackage       guibg=#100e23
+    highlight  AerialProperty      guibg=#100e23
+    highlight  AerialString        guibg=#100e23
+    highlight  AerialStruct        guibg=#100e23
+    highlight  AerialTypeParameter guibg=#100e23
+    highlight  AerialVariable      guibg=#100e23
+
+]]
+
 require'nvim-treesitter.configs'.setup {
 	
   -- A list of parser names, or "all"
@@ -74,7 +142,16 @@ require'nvim-treesitter.configs'.setup {
 		-- additional_vim_regex_highlighting = false,
   },
 }
-require('telescope').setup()
+require('telescope').load_extension('aerial')
+require('telescope').setup({
+	extensions = {
+		aerial ={
+			show_nesting= true
+		}
+
+	}
+
+})
 require('lspconfig').pyright.setup{}
 require('completion_setup')
 
@@ -113,6 +190,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+	-- Toggle the aerial window with <leader>a
+	require('aerial').on_attach(client,bufnr)
 end
 
 local lsp_flags = {
@@ -120,18 +199,23 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 require('lspconfig')['pyright'].setup{
-    --on_attach = on_attach,
+    on_attach = on_attach,
 		capabilities = capabilities,
     flags = lsp_flags,
 }
 require('lspconfig')['tsserver'].setup{
-    --on_attach = on_attach,
+    on_attach = on_attach,
 		capabilities = capabilities,
     flags = lsp_flags,
 
 }
+require('lspconfig').cssls.setup{
+    on_attach = on_attach,
+		capabilities = capabilities,
+    flags = lsp_flags,
+}
 require('lspconfig')['rust_analyzer'].setup{
-    --on_attach = on_attach,
+    on_attach = on_attach,
 		capabilities = capabilities,
     flags = lsp_flags,
     -- Server-specific settings...
@@ -154,3 +238,6 @@ require('lspconfig')['rust_analyzer'].setup{
 				}
 			}
 } 
+--require('lspconfig').vimls.setup{
+--	on_attach=on_attach
+--}

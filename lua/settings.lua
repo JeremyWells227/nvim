@@ -1,8 +1,6 @@
 HOME = os.getenv("HOME")
 
-
-vim.g.mapleader = " "
-
+vim.g.mapleader = ' '
 vim.opt.backspace = "indent,eol,start"
 vim.opt.completeopt = "menuone,noselect"
 
@@ -42,3 +40,7 @@ vim.opt.incsearch=true
 vim.opt.mps = vim.o.mps .. ",<:>"
 vim.g.python3_host_prog = '/usr/bin/python3'
 vim.g.python_host_prog  = '/usr/bin/python'
+vim.diagnostic.config{
+	underline=false
+}
+
