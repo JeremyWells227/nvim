@@ -59,60 +59,60 @@ require('lualine').setup{
 -- Constant       xxx ctermfg=228 guifg=#ffe6b3
 -- Include PreProc        xxx ctermfg=120 guifg=#a1efd3 
 vim.cmd [[ 
-    highlight  AerialLine							 guifg=#87dfeb
-    highlight  AerialArrayIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialBooleanIcon       ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialClassIcon         ctermfg=159 guifg=#91ddff guibg=#100e23
-    highlight  AerialConstantIcon      ctermfg=228 guifg=#ffe6b3 guibg=#100e23
-    highlight  AerialConstructorIcon   ctermfg=122 guifg=#87dfeb guibg=#100e23
-    highlight  AerialEnumIcon          ctermfg=159 guifg=#91ddff guibg=#100e23
-    highlight  AerialEnumMemberIcon    ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialEventIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialFieldIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialFileIcon          ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialFunctionIcon      ctermfg=204 guifg=#f48fb1 guibg=#100e23
-    highlight  AerialInterfaceIcon     ctermfg=159 guifg=#91ddff guibg=#100e23
-    highlight  AerialKeyIcon           ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialMethodIcon        ctermfg=204 guifg=#f48fb1 guibg=#100e23
-    highlight  AerialModuleIcon        ctermfg=120 guifg=#a1efd3 guibg=#100e23
-    highlight  AerialNamespaceIcon     ctermfg=120 guifg=#a1efd3 guibg=#100e23
-    highlight  AerialNullIcon          ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialNumberIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialObjectIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialOperatorIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialPackageIcon       ctermfg=120 guifg=#a1efd3 guibg=#100e23
-    highlight  AerialPropertyIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialStringIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialStructIcon        ctermfg=159 guifg=#91ddff guibg=#100e23
-    highlight  AerialTypeParameterIcon ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  AerialVariableIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialLine							 guifg=#87dfeb
+    highlight  LuaLineAerialArrayIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialBooleanIcon       ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialClassIcon         ctermfg=159 guifg=#91ddff guibg=#100e23
+    highlight  LuaLineAerialConstantIcon      ctermfg=228 guifg=#ffe6b3 guibg=#100e23
+    highlight  LuaLineAerialConstructorIcon   ctermfg=122 guifg=#87dfeb guibg=#100e23
+    highlight  LuaLineAerialEnumIcon          ctermfg=159 guifg=#91ddff guibg=#100e23
+    highlight  LuaLineAerialEnumMemberIcon    ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialEventIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialFieldIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialFileIcon          ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialFunctionIcon      ctermfg=204 guifg=#f48fb1 guibg=#100e23
+    highlight  LuaLineAerialInterfaceIcon     ctermfg=159 guifg=#91ddff guibg=#100e23
+    highlight  LuaLineAerialKeyIcon           ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialMethodIcon        ctermfg=204 guifg=#f48fb1 guibg=#100e23
+    highlight  LuaLineAerialModuleIcon        ctermfg=120 guifg=#a1efd3 guibg=#100e23
+    highlight  LuaLineAerialNamespaceIcon     ctermfg=120 guifg=#a1efd3 guibg=#100e23
+    highlight  LuaLineAerialNullIcon          ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialNumberIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialObjectIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialOperatorIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialPackageIcon       ctermfg=120 guifg=#a1efd3 guibg=#100e23
+    highlight  LuaLineAerialPropertyIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialStringIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialStructIcon        ctermfg=159 guifg=#91ddff guibg=#100e23
+    highlight  LuaLineAerialTypeParameterIcon ctermfg=141 guifg=#d4bfff guibg=#100e23
+    highlight  LuaLineAerialVariableIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
 
-    highlight  AerialArray         guibg=#100e23
-    highlight  AerialBoolean       guibg=#100e23
-    highlight  AerialClass         guibg=#100e23
-    highlight  AerialConstant      guibg=#100e23
-    highlight  AerialConstructor   guibg=#100e23
-    highlight  AerialEnum          guibg=#100e23
-    highlight  AerialEnumMember    guibg=#100e23
-    highlight  AerialEvent         guibg=#100e23
-    highlight  AerialField         guibg=#100e23
-    highlight  AerialFile          guibg=#100e23
-    highlight  AerialFunction      guibg=#100e23
-    highlight  AerialInterface     guibg=#100e23
-    highlight  AerialKey           guibg=#100e23
-    highlight  AerialMethod        guibg=#100e23
-    highlight  AerialModule        guibg=#100e23
-    highlight  AerialNamespace     guibg=#100e23
-    highlight  AerialNull          guibg=#100e23
-    highlight  AerialNumber        guibg=#100e23
-    highlight  AerialObject        guibg=#100e23
-    highlight  AerialOperator      guibg=#100e23
-    highlight  AerialPackage       guibg=#100e23
-    highlight  AerialProperty      guibg=#100e23
-    highlight  AerialString        guibg=#100e23
-    highlight  AerialStruct        guibg=#100e23
-    highlight  AerialTypeParameter guibg=#100e23
-    highlight  AerialVariable      guibg=#100e23
+    highlight  LuaLineAerialArray         guibg=#100e23
+    highlight  LuaLineAerialBoolean       guibg=#100e23
+    highlight  LuaLineAerialClass         guibg=#100e23
+    highlight  LuaLineAerialConstant      guibg=#100e23
+    highlight  LuaLineAerialConstructor   guibg=#100e23
+    highlight  LuaLineAerialEnum          guibg=#100e23
+    highlight  LuaLineAerialEnumMember    guibg=#100e23
+    highlight  LuaLineAerialEvent         guibg=#100e23
+    highlight  LuaLineAerialField         guibg=#100e23
+    highlight  LuaLineAerialFile          guibg=#100e23
+    highlight  LuaLineAerialFunction      guibg=#100e23
+    highlight  LuaLineAerialInterface     guibg=#100e23
+    highlight  LuaLineAerialKey           guibg=#100e23
+    highlight  LuaLineAerialMethod        guibg=#100e23
+    highlight  LuaLineAerialModule        guibg=#100e23
+    highlight  LuaLineAerialNamespace     guibg=#100e23
+    highlight  LuaLineAerialNull          guibg=#100e23
+    highlight  LuaLineAerialNumber        guibg=#100e23
+    highlight  LuaLineAerialObject        guibg=#100e23
+    highlight  LuaLineAerialOperator      guibg=#100e23
+    highlight  LuaLineAerialPackage       guibg=#100e23
+    highlight  LuaLineAerialProperty      guibg=#100e23
+    highlight  LuaLineAerialString        guibg=#100e23
+    highlight  LuaLineAerialStruct        guibg=#100e23
+    highlight  LuaLineAerialTypeParameter guibg=#100e23
+    highlight  LuaLineAerialVariable      guibg=#100e23
 
 ]]
 
