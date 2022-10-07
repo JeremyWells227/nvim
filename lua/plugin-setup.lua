@@ -8,8 +8,7 @@ require('lualine').setup{
           statusline = {},
           winbar = {},
         },
-        ignore_focus = {},
-        always_divide_middle = true,
+        ignore_focus = {}, always_divide_middle = true,
         globalstatus = false,
         refresh = {
           statusline = 1000,
@@ -51,70 +50,6 @@ require('lualine').setup{
     }
 
 
--- lualine_c_command xxx guifg=#cbe3e7 guibg=#100e23
--- Identifier xxx ctermfg=141 guifg=#d4bfff
--- Function       xxx ctermfg=204 guifg=#f48fb1 
--- Special        xxx ctermfg=122 guifg=#87dfeb  
--- Type           xxx ctermfg=159 guifg=#91ddff
--- Constant       xxx ctermfg=228 guifg=#ffe6b3
--- Include PreProc        xxx ctermfg=120 guifg=#a1efd3 
-vim.cmd [[ 
-    highlight  LuaLineAerialLine							 guifg=#87dfeb
-    highlight  LuaLineAerialArrayIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialBooleanIcon       ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialClassIcon         ctermfg=159 guifg=#91ddff guibg=#100e23
-    highlight  LuaLineAerialConstantIcon      ctermfg=228 guifg=#ffe6b3 guibg=#100e23
-    highlight  LuaLineAerialConstructorIcon   ctermfg=122 guifg=#87dfeb guibg=#100e23
-    highlight  LuaLineAerialEnumIcon          ctermfg=159 guifg=#91ddff guibg=#100e23
-    highlight  LuaLineAerialEnumMemberIcon    ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialEventIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialFieldIcon         ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialFileIcon          ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialFunctionIcon      ctermfg=204 guifg=#f48fb1 guibg=#100e23
-    highlight  LuaLineAerialInterfaceIcon     ctermfg=159 guifg=#91ddff guibg=#100e23
-    highlight  LuaLineAerialKeyIcon           ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialMethodIcon        ctermfg=204 guifg=#f48fb1 guibg=#100e23
-    highlight  LuaLineAerialModuleIcon        ctermfg=120 guifg=#a1efd3 guibg=#100e23
-    highlight  LuaLineAerialNamespaceIcon     ctermfg=120 guifg=#a1efd3 guibg=#100e23
-    highlight  LuaLineAerialNullIcon          ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialNumberIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialObjectIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialOperatorIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialPackageIcon       ctermfg=120 guifg=#a1efd3 guibg=#100e23
-    highlight  LuaLineAerialPropertyIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialStringIcon        ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialStructIcon        ctermfg=159 guifg=#91ddff guibg=#100e23
-    highlight  LuaLineAerialTypeParameterIcon ctermfg=141 guifg=#d4bfff guibg=#100e23
-    highlight  LuaLineAerialVariableIcon      ctermfg=141 guifg=#d4bfff guibg=#100e23
-
-    highlight  LuaLineAerialArray         guibg=#100e23
-    highlight  LuaLineAerialBoolean       guibg=#100e23
-    highlight  LuaLineAerialClass         guibg=#100e23
-    highlight  LuaLineAerialConstant      guibg=#100e23
-    highlight  LuaLineAerialConstructor   guibg=#100e23
-    highlight  LuaLineAerialEnum          guibg=#100e23
-    highlight  LuaLineAerialEnumMember    guibg=#100e23
-    highlight  LuaLineAerialEvent         guibg=#100e23
-    highlight  LuaLineAerialField         guibg=#100e23
-    highlight  LuaLineAerialFile          guibg=#100e23
-    highlight  LuaLineAerialFunction      guibg=#100e23
-    highlight  LuaLineAerialInterface     guibg=#100e23
-    highlight  LuaLineAerialKey           guibg=#100e23
-    highlight  LuaLineAerialMethod        guibg=#100e23
-    highlight  LuaLineAerialModule        guibg=#100e23
-    highlight  LuaLineAerialNamespace     guibg=#100e23
-    highlight  LuaLineAerialNull          guibg=#100e23
-    highlight  LuaLineAerialNumber        guibg=#100e23
-    highlight  LuaLineAerialObject        guibg=#100e23
-    highlight  LuaLineAerialOperator      guibg=#100e23
-    highlight  LuaLineAerialPackage       guibg=#100e23
-    highlight  LuaLineAerialProperty      guibg=#100e23
-    highlight  LuaLineAerialString        guibg=#100e23
-    highlight  LuaLineAerialStruct        guibg=#100e23
-    highlight  LuaLineAerialTypeParameter guibg=#100e23
-    highlight  LuaLineAerialVariable      guibg=#100e23
-
-]]
 
 require'nvim-treesitter.configs'.setup {
 	
