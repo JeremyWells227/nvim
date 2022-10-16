@@ -19,6 +19,7 @@ vim.cmd([[
 filetype plugin indent on
 syntax on 
 nnoremap <SPACE> <nop>
+set mouse=
 ]])
 vim.opt.background = "dark"
 vim.opt.bs="2"
