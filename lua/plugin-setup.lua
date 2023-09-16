@@ -47,12 +47,11 @@ require('lualine').setup{
 			}
     }
 
-
-
+require('colorizer').setup()
 require'nvim-treesitter.configs'.setup {
 	
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua", "rust" , 'javascript', 'ruby','python','go','lua'},
+  ensure_installed = { "c", "lua", "rust" , 'javascript', 'ruby','python','go','lua','org'},
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -73,6 +72,7 @@ require'nvim-treesitter.configs'.setup {
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
 		-- additional_vim_regex_highlighting = false,
+		additional_vim_regex_highlighting = {'org'},
   },
 }
 require('telescope').load_extension('aerial')
@@ -85,7 +85,11 @@ require('telescope').setup({
 	}
 
 })
+require('mason').setup()
+require('mason-lspconfig').setup()
 require('lspconfig').pyright.setup{}
+require('lspconfig').rust_analyzer.setup{}
+require('lspconfig').tsserver.setup{}
 require('completion_setup')
 
 -- Setup lspconfig.
@@ -125,7 +129,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 	-- Toggle the aerial window with <leader>a
-	require('aerial').on_attach(client,bufnr)
+	--require('aerial').on_attach(client,bufnr)
 end
 
 local lsp_flags = {
@@ -172,35 +176,58 @@ require('lspconfig')['rust_analyzer'].setup{
 				}
 			}
 }
+
+
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
+local dap = require('dap')
+ dap.adapters.chrome = {
+    type = "executable",
+    command = "node",
+    args = {os.getenv("HOME") .. "/home/jeremy/git/vscode-chrome-debug/out/src/chromeDebug.js"} -- TODO adjust
+}
+dap.configurations.typescriptreact = { -- change to typescript if needed
+    {
+        type = "chrome",
+        request = "attach",
+        program = "${file}",
+        cwd = vim.fn.getcwd(),
+        sourceMaps = true,
+        protocol = "inspector",
+        port = 9222,
+        webRoot = "${workspaceFolder}"
+    }
+}
 
-require('lspconfig').sumneko_lua.setup({
-on_attach = on_attach,
-settings = {
-    Lua = {
-    runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = "LuaJIT",
-        -- Setup your lua path
-        path = runtime_path,
-    },
-    diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
-    },
-    workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-    },
-    -- Do not send telemetry data containing a randomized but unique identifier
-    telemetry = {
-        enable = false,
-    },
-    },
-},
-})
+require('dapui').setup()
+
+require('dap-python').setup('/usr/bin/python')
+--require('lspconfig').sumneko_lua.setup({
+--on_attach = on_attach,
+--settings = {
+--    Lua = {
+--    runtime = {
+--        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+--        version = "LuaJIT",
+--        -- Setup your lua path
+--        path = runtime_path,
+--    },
+--    diagnostics = {
+--        -- Get the language server to recognize the `vim` global
+--        globals = { "vim" },
+--    },
+--    workspace = {
+--        -- Make the server aware of Neovim runtime files
+--        library = vim.api.nvim_get_runtime_file("", true),
+--    },
+--    -- Do not send telemetry data containing a randomized but unique identifier
+--    telemetry = {
+--        enable = false,
+--    },
+--    },
+--},
+--})
 
 
 --require('lspconfig').vimls.setup{
